@@ -1,6 +1,6 @@
 #include <fmt/core.h>
+#include <iostream>
 #include <random>
-#include <scn/scn.h>
 
 using fmt::print;
 
@@ -10,7 +10,7 @@ int main(int argc, const char* argv[]) {
     do {
         if (argc == 1) {
             print("Enter the Upper limit: ");
-            auto result = scn::prompt("Write an integer: ", "{}", random_val);
+            std::cin >> random_val;
         } else {
             random_val = std::stoi(argv[1]);
         }
