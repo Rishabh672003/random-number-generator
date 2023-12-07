@@ -16,6 +16,7 @@ int main(int argc, const char* argv[]) {
         }
         if (random_val == 0 || random_val < 0) {
             print("Upper limit cannot be 0 or less than 0\n");
+            return -1;
         }
     } while (random_val == 0 || random_val < 0);
 
