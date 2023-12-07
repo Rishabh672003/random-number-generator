@@ -35,4 +35,4 @@ endif()
 
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 add_executable(random ${MY_SOURCES})
-target_link_libraries(random fmt scn::scn)
+target_link_libraries(random fmt)
