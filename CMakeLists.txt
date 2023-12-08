@@ -19,6 +19,12 @@ include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 # this is the way to add/install new stuff
 CPMAddPackage("gh:fmtlib/fmt#10.1.1")
 CPMAddPackage("gh:eliaskosunen/scnlib#v1.1.3")
+CPMAddPackage(
+  NAME Boost
+  VERSION 1.83.0
+  GITHUB_REPOSITORY "boostorg/boost"
+  GIT_TAG "boost-1.83.0"
+)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Debug")
@@ -35,4 +41,4 @@ endif()
 
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 add_executable(random ${MY_SOURCES})
-target_link_libraries(random fmt)
+target_link_libraries(random fmt boost)

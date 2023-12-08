@@ -1,31 +1,33 @@
+#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/random.hpp>
+#include <boost/random/random_device.hpp>
 #include <fmt/core.h>
 #include <iostream>
 #include <random>
 
-using fmt::print;
-
 int main(int argc, const char* argv[]) {
 
-    int random_val;
+    namespace mp = boost::multiprecision;
+
+    mp::cpp_int random_val;
     do {
         if (argc == 1) {
-            print("Enter the Upper limit: ");
+            std::cout << "Enter the Upper limit: ";
             std::cin >> random_val;
         } else {
-            random_val = std::stoi(argv[1]);
+            std::string random = argv[1];
+            random_val = mp::cpp_int(random);
         }
-        if (random_val == 0 || random_val < 0) {
-            print("Upper limit cannot be 0 or less than 0\n");
+        if (random_val == 0) {
+            std::cout << "Upper limit cannot be 0 or less than 0\n";
             return -1;
         }
     } while (random_val == 0 || random_val < 0);
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(1, random_val);
+    boost::random::random_device gen;
+    boost::random::uniform_int_distribution<mp::cpp_int> ui(1, random_val);
 
-    print("Random Number generated between 1 and {}: {}\n", random_val,
-          dis(gen));
-
+    mp::cpp_int y = ui(gen);
+    std::cout << y << "\n";
     return 0;
 }
