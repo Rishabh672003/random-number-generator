@@ -1,9 +1,4 @@
-# Random Number Generator
+# Random Number Generators
 
-A damn simple c++ random number generator.
-
-## Showcase
-
-notice this works with unlimited precision thats the coolest part of this project achieved because i used the `boost::multipricison` library to generate/handle very very large numbers
-
-![image](https://github.com/Rishabh672003/random-number-generator/assets/53911515/7cbebfa4-f195-4096-b1f3-48416fcf4b57)
+Whenever i learn a new language i try to make a random number generator in it, only catch is the numbers precision
+should be arbitrary that is it should be able to generate number of any length.
